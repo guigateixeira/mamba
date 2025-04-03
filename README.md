@@ -16,7 +16,6 @@
 
    ```sh
    git clone https://github.com/guigateixeira/mamba.git
-   cd mamba
    ```
 
 2. **Criar um arquivo `.env`** baseado no `.env.example` disponível no repositório:
