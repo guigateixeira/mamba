@@ -40,7 +40,7 @@
 Para rodar a aplicação em ambiente de desenvolvimento, use o seguinte comando:
 
 ```sh
-npm run dev
+npm run start
 ```
 
 ## Testes

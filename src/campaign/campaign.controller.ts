@@ -11,6 +11,7 @@ import {
   Query,
   ValidationPipe,
 } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery, ApiBody } from '@nestjs/swagger';
 import {
   CreateCampaignBodyRequest,
   GetCampaignByIdParams,
@@ -20,11 +21,15 @@ import {
 import { IOC_TYPES } from 'src/constants';
 import { ICampaignService } from './interfaces';
 import {
+  CreateCampaignAPIResponse,
   CreateCampaignResponse,
+  GetCampaignAPIResponse,
   GetCampaignResponse,
+  GetCampaignsAPIResponse,
   GetCampaignsResponse,
 } from './dto/responses';
 
+@ApiTags('Campaigns')
 @Controller('campaigns')
 export class CampaignController {
   constructor(
@@ -34,6 +39,9 @@ export class CampaignController {
 
   @Post()
   @HttpCode(201)
+  @ApiOperation({ summary: 'Create a new campaign' })
+  @ApiResponse({ status: 201, description: 'Campaign created successfully.', type: CreateCampaignAPIResponse })
+  @ApiBody({ type: CreateCampaignBodyRequest })
   async createCampaign(
     @Body() body: CreateCampaignBodyRequest,
   ): Promise<CreateCampaignResponse> {
@@ -52,6 +60,9 @@ export class CampaignController {
   }
 
   @Get()
+  @ApiOperation({ summary: 'Retrieve all campaigns' })
+  @ApiResponse({ status: 200, description: 'Campaigns retrieved successfully.', type: GetCampaignsAPIResponse })
+  @ApiQuery({ name: 'page', required: false, type: Number })
   async getCampaigns(
     @Query() query: GetCampaignsQueryDto,
   ): Promise<GetCampaignsResponse> {
@@ -64,6 +75,9 @@ export class CampaignController {
   }
 
   @Get(':id')
+  @ApiOperation({ summary: 'Retrieve a campaign by ID' })
+  @ApiResponse({ status: 200, description: 'Campaign retrieved successfully.', type: GetCampaignAPIResponse })
+  @ApiParam({ name: 'id', required: true, type: String })
   async getCampaignById(
     @Param() params: GetCampaignByIdParams,
   ): Promise<GetCampaignResponse> {
@@ -77,6 +91,10 @@ export class CampaignController {
   }
 
   @Patch(':id')
+  @ApiOperation({ summary: 'Update a campaign' })
+  @ApiResponse({ status: 200, description: 'Campaign updated successfully.', type: GetCampaignAPIResponse })
+  @ApiParam({ name: 'id', required: true, type: String })
+  @ApiBody({ type: UpdateCampaignBodyRequest })
   async updateCampaign(
     @Param() params: GetCampaignByIdParams,
     @Body(new ValidationPipe({ transform: true }))
@@ -96,6 +114,10 @@ export class CampaignController {
 
   @Delete(':id')
   @HttpCode(204)
+  @HttpCode(204)
+  @ApiOperation({ summary: 'Delete a campaign' })
+  @ApiResponse({ status: 204, description: 'Campaign deleted successfully.' })
+  @ApiParam({ name: 'id', required: true, type: String })
   async deleteCampaign(@Param() params: GetCampaignByIdParams): Promise<void> {
     await this._campaignService.deleteCampaign(params.id);
   }
