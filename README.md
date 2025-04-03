@@ -7,13 +7,15 @@
 - Docker Compose
 - npm
 - Nest.js
+- Postman
+- PGAdmin
 
 ## Configuração do Ambiente
 
 1. **Clonar o repositório**:
 
    ```sh
-   git clone <URL_DO_REPOSITORIO>
+   git clone https://github.com/guigateixeira/mamba.git
    cd <NOME_DO_REPOSITORIO>
    ```
 
@@ -31,7 +33,7 @@
 
 4. **Instalar as dependências do projeto**:
    ```sh
-   npm install
+   npm i
    ```
 
 ## Executando a Aplicação
@@ -44,7 +46,7 @@ npm run dev
 
 ## Testes
 
-Para rodar os testes automatizados, utilize:
+Para rodar os testes unitarios, utilize:
 
 ```sh
 npm run test
