@@ -50,3 +50,52 @@ Para rodar os testes unitarios, utilize:
 ```sh
 npm run test
 ```
+
+## Documentação
+
+Quando o programa estiver correndo localmente pode entrar no url: `http://localhost:3000/api/docs` para aceder aos swagger docs:
+
+![alt text](image.png)
+
+## Endpoints
+
+### Criar campanha
+
+URL: `POST http://localhost:3000/campaigns`
+body:
+
+```
+{
+  "name": "Summer Giveaway",
+  "category": "EMAIL",
+  "startDate": "2024-07-01T00:00:00.000Z",
+  "endDate": "2024-07-31T23:59:59.999Z"
+}
+```
+
+### Pegar todas as campanhas
+
+URL: `GET http://localhost:3000/campaigns?page=1`
+
+### Pegar camapnha por ID
+
+URL: `GET http://localhost:3000/campaigns/:id`
+
+### Update de campanha
+
+URL: `GET http://localhost:3000/campaigns/:id`
+body:
+
+```
+{
+  "name": string (OPTIONAL),
+  "category": string (OPTIONAL),
+  "startDate": date (OPTIONAL),
+  "endDate": date (OPTIONAL),
+  "status": string (OPTIONAL)
+}
+
+### Deletar campanha
+
+URL: `DELETE http://localhost:3000/campaigns/:id`
+```

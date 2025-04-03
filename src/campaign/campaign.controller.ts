@@ -11,7 +11,14 @@ import {
   Query,
   ValidationPipe,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery, ApiBody } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiQuery,
+  ApiBody,
+} from '@nestjs/swagger';
 import {
   CreateCampaignBodyRequest,
   GetCampaignByIdParams,
@@ -40,7 +47,11 @@ export class CampaignController {
   @Post()
   @HttpCode(201)
   @ApiOperation({ summary: 'Create a new campaign' })
-  @ApiResponse({ status: 201, description: 'Campaign created successfully.', type: CreateCampaignAPIResponse })
+  @ApiResponse({
+    status: 201,
+    description: 'Campaign created successfully.',
+    type: CreateCampaignAPIResponse,
+  })
   @ApiBody({ type: CreateCampaignBodyRequest })
   async createCampaign(
     @Body() body: CreateCampaignBodyRequest,
@@ -61,7 +72,11 @@ export class CampaignController {
 
   @Get()
   @ApiOperation({ summary: 'Retrieve all campaigns' })
-  @ApiResponse({ status: 200, description: 'Campaigns retrieved successfully.', type: GetCampaignsAPIResponse })
+  @ApiResponse({
+    status: 200,
+    description: 'Campaigns retrieved successfully.',
+    type: GetCampaignsAPIResponse,
+  })
   @ApiQuery({ name: 'page', required: false, type: Number })
   async getCampaigns(
     @Query() query: GetCampaignsQueryDto,
@@ -76,7 +91,11 @@ export class CampaignController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Retrieve a campaign by ID' })
-  @ApiResponse({ status: 200, description: 'Campaign retrieved successfully.', type: GetCampaignAPIResponse })
+  @ApiResponse({
+    status: 200,
+    description: 'Campaign retrieved successfully.',
+    type: GetCampaignAPIResponse,
+  })
   @ApiParam({ name: 'id', required: true, type: String })
   async getCampaignById(
     @Param() params: GetCampaignByIdParams,
@@ -92,7 +111,11 @@ export class CampaignController {
 
   @Patch(':id')
   @ApiOperation({ summary: 'Update a campaign' })
-  @ApiResponse({ status: 200, description: 'Campaign updated successfully.', type: GetCampaignAPIResponse })
+  @ApiResponse({
+    status: 200,
+    description: 'Campaign updated successfully.',
+    type: GetCampaignAPIResponse,
+  })
   @ApiParam({ name: 'id', required: true, type: String })
   @ApiBody({ type: UpdateCampaignBodyRequest })
   async updateCampaign(
