@@ -6,6 +6,7 @@ import { CampaignService } from 'src/campaign/campaign.service';
 import {
   CampaignCreationError,
   CampaignNotFoundError,
+  CampaignUpdateError,
 } from 'src/campaign/errors';
 import { ICampaignRepository } from 'src/campaign/interfaces';
 
@@ -17,7 +18,7 @@ const mockCampaignRepository = (): ICampaignRepository => ({
   deleteCampaign: jest.fn(),
 });
 
-describe('CampaignService', () => {
+describe('Campaign Service', () => {
   let service: CampaignService;
 
   let repository: Mocked<ICampaignRepository>;
@@ -127,6 +128,12 @@ describe('CampaignService', () => {
       await expect(
         service.updateCampaign({ id: '1', name: 'New Name' }),
       ).rejects.toThrow(CampaignNotFoundError);
+    });
+    
+    it('should throw error if no field is passed to be updated', async () => {
+      await expect(
+        service.updateCampaign({ id: '1'}),
+      ).rejects.toThrow(CampaignUpdateError);
     });
   });
 
