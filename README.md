@@ -10,6 +10,16 @@
 - Postman
 - PGAdmin
 
+## Ambiente de produção
+
+O app ja esta rodando na Cloud com uma DB, então caso queira pode fazer requests para la tambem nos endpoints:
+
+- `GET https://mamba-production.up.railway.app/campaigns`
+- `POST https://mamba-production.up.railway.app/campaigns`
+- `GET https://mamba-production.up.railway.app/campaigns/:id`
+- `PATCH https://mamba-production.up.railway.app/campaigns/:id`
+- `DELETE https://mamba-production.up.railway.app/campaigns/:id`
+
 ## Configuração do Ambiente
 
 1. **Clonar o repositório**:
