@@ -63,9 +63,7 @@ npm run test
 
 ## Documentação
 
-Documentação swagger na cloud `https://mamba-production.up.railway.app/api/docs`.
-
-Quando o programa estiver correndo localmente pode entrar no url: `http://localhost:3000/api/docs` para aceder aos swagger docs:
+Documentação swagger na cloud `https://mamba-production.up.railway.app/api/docs`, ou quando o programa estiver correndo localmente pode entrar no url: `http://localhost:3000/api/docs` para aceder aos swagger docs:
 
 ![alt text](image.png)
 
