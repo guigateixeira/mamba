@@ -12,7 +12,7 @@
 
 ## Ambiente de produção
 
-O app ja esta rodando na Cloud com uma DB, então caso queira pode fazer requests para la tambem nos endpoints:
+O app ja esta rodando na Cloud com uma DB, então caso queira pode fazer requests para la, são os endpoints:
 
 - `GET https://mamba-production.up.railway.app/campaigns`
 - `POST https://mamba-production.up.railway.app/campaigns`
