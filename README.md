@@ -104,8 +104,8 @@ body:
   "endDate": date (OPTIONAL),
   "status": string (OPTIONAL)
 }
+```
 
 ### Deletar campanha
 
 URL: `DELETE http://localhost:3000/campaigns/:id`
-```
