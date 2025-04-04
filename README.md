@@ -4,7 +4,6 @@
 
 - Node.js
 - Docker
-- Docker Compose
 - npm
 - Nest.js
 - Postman
