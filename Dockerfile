@@ -3,10 +3,10 @@ FROM node:22
 WORKDIR /app
 
 COPY package*.json ./
-COPY tsconfig.json ./
-COPY src ./src
 
-RUN npm install --omit=dev
+RUN npm install
+
+COPY . .
 
 RUN npm run build
 
